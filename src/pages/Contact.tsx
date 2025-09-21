@@ -60,7 +60,7 @@ const Contact = () => {
                   </div>
                 </CardHeader>
                 <CardContent>
-                  <CardDescription>+62 21 1234 5678</CardDescription>
+                  <CardDescription>+62882 0017 77721</CardDescription>
                 </CardContent>
               </Card>
 
@@ -73,8 +73,8 @@ const Contact = () => {
                 </CardHeader>
                 <CardContent>
                   <CardDescription>
-                    Jl. Mental Health No. 123<br />
-                    Jakarta Selatan, Indonesia 12345
+                    Jl. Parama Utama<br />
+                    Serang, Banten
                   </CardDescription>
                 </CardContent>
               </Card>
@@ -85,7 +85,7 @@ const Contact = () => {
               <p className="text-gray-600">
                 Senin - Jumat: 08:00 - 22:00 WIB<br />
                 Sabtu - Minggu: 09:00 - 20:00 WIB<br />
-                <span className="text-purple-600">Support 24/7 tersedia untuk anggota premium</span>
+                <span className="text-purple-600">Support 24/7 tersedia untuk anggota premium dan elite</span>
               </p>
             </div>
           </div>
