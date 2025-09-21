@@ -83,9 +83,8 @@ const Contact = () => {
             <div className="mt-8">
               <h3 className="text-lg font-semibold mb-4">Jam Operasional</h3>
               <p className="text-gray-600">
-                Senin - Jumat: 08:00 - 22:00 WIB<br />
-                Sabtu - Minggu: 09:00 - 20:00 WIB<br />
-                <span className="text-purple-600">Support 24/7 tersedia untuk anggota premium dan elite</span>
+                Senin - Minggu: 24 Jam<br />
+                <span className="text-purple-600 font-semibold">Support tersedia 24/7 untuk semua anggota</span>
               </p>
             </div>
           </div>
