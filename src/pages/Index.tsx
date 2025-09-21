@@ -114,7 +114,7 @@ const Index = () => {
             <div>
               <h4 className="font-semibold mb-4">Dukungan</h4>
               <ul className="space-y-2 text-gray-400">
-                <li><Link to="/help" className="hover:text-white">Bantuan</Link></li>
+                <li><Link to="/terms" className="hover:text-white">Bantuan</Link></li>
                 <li><Link to="/privacy" className="hover:text-white">Privasi</Link></li>
                 <li><Link to="/terms" className="hover:text-white">Syarat & Ketentuan</Link></li>
               </ul>
