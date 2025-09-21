@@ -11,7 +11,6 @@ import {
   CloudLightning,
   Smile,
   Meh,
-  Brain,
   Calendar,
   Activity,
   Download,
@@ -39,14 +38,6 @@ const SejiwaApp = () => {
     wind: 12
   };
 
-  // Data meditasi
-  const meditationTypes = [
-    { id: 1, name: 'Meditasi Pernapasan', duration: 5, icon: '🧘', description: 'Fokus pada napas masuk dan keluar' },
-    { id: 2, name: 'Meditasi Body Scan', duration: 10, icon: '🔍', description: 'Scan tubuh dari kepala hingga kaki' },
-    { id: 3, name: 'Meditasi Loving-Kindness', duration: 15, icon: '💖', description: 'Kirim cinta dan kebaikan' },
-    { id: 4, name: 'Meditasi Mindfulness', duration: 20, icon: '🌿', description: 'Hadir sepenuhnya di momen sekarang' }
-  ];
-
   // Mood options
   const moodOptions = [
     { id: 1, emoji: '😊', label: 'Sangat Baik', color: 'bg-green-500' },
@@ -58,7 +49,6 @@ const SejiwaApp = () => {
 
   // Activity suggestions
   const activitySuggestions = [
-    "Coba meditasi 5 menit",
     "Hubungi teman untuk berbicara",
     "Tulis jurnal perasaan",
     "Dengarkan musik yang menenangkan",
@@ -97,7 +87,7 @@ const SejiwaApp = () => {
   };
 
   const renderMainMenu = () => (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
       <Card className="cursor-pointer hover:shadow-lg transition-shadow" onClick={() => setCurrentView('weather')}>
         <CardHeader>
           <div className="flex items-center justify-center w-16 h-16 bg-blue-100 rounded-full mb-4">
@@ -135,16 +125,6 @@ const SejiwaApp = () => {
           </div>
           <CardTitle>Saran Aktivitas</CardTitle>
           <CardDescription>Dapatkan saran berdasarkan mood</CardDescription>
-        </CardHeader>
-      </Card>
-
-      <Card className="cursor-pointer hover:shadow-lg transition-shadow" onClick={() => setCurrentView('meditation')}>
-        <CardHeader>
-          <div className="flex items-center justify-center w-16 h-16 bg-indigo-100 rounded-full mb-4">
-            <Brain className="h-8 w-8 text-indigo-600" />
-          </div>
-          <CardTitle>Panduan Meditasi</CardTitle>
-          <CardDescription>Pilih jenis meditasi yang ingin Anda praktikkan</CardDescription>
         </CardHeader>
       </Card>
 
@@ -357,57 +337,6 @@ const SejiwaApp = () => {
     </div>
   );
 
-  const renderMeditation = () => (
-    <div className="space-y-6">
-      <Card>
-        <CardHeader>
-          <CardTitle>Panduan Meditasi</CardTitle>
-          <CardDescription>Pilih jenis meditasi yang ingin Anda praktikkan</CardDescription>
-        </CardHeader>
-        <CardContent>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {meditationTypes.map((meditation) => (
-              <Card key={meditation.id} className="cursor-pointer hover:shadow-lg transition-shadow">
-                <CardHeader>
-                  <div className="flex items-center justify-between">
-                    <div className="flex items-center space-x-3">
-                      <span className="text-2xl">{meditation.icon}</span>
-                      <div>
-                        <CardTitle className="text-lg">{meditation.name}</CardTitle>
-                        <CardDescription>{meditation.description}</CardDescription>
-                      </div>
-                    </div>
-                    <Badge variant="secondary">
-                      <Clock className="h-3 w-3 mr-1" />
-                      {meditation.duration} menit
-                    </Badge>
-                  </div>
-                </CardHeader>
-                <CardContent>
-                  <Button className="w-full">
-                    <Play className="h-4 w-4 mr-2" />
-                    Mulai Meditasi
-                  </Button>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </CardContent>
-      </Card>
-      <div className="flex gap-4">
-        <Button variant="outline" onClick={() => setCurrentView('main')}>
-          Kembali ke Menu
-        </Button>
-        <Button variant="outline" asChild>
-          <Link to="/">
-            <Home className="h-4 w-4 mr-2" />
-            Kembali ke Home
-          </Link>
-        </Button>
-      </div>
-    </div>
-  );
-
   const renderDownload = () => (
     <div className="space-y-6">
       <Card>
@@ -450,10 +379,6 @@ const SejiwaApp = () => {
               <div className="flex items-center">
                 <div className="w-2 h-2 bg-purple-600 rounded-full mr-3"></div>
                 <span className="text-sm">Pelacakan mood lengkap</span>
-              </div>
-              <div className="flex items-center">
-                <div className="w-2 h-2 bg-purple-600 rounded-full mr-3"></div>
-                <span className="text-sm">Meditasi terpandu</span>
               </div>
               <div className="flex items-center">
                 <div className="w-2 h-2 bg-purple-600 rounded-full mr-3"></div>
@@ -504,7 +429,6 @@ const SejiwaApp = () => {
           {currentView === 'moodSuccess' && renderMoodSuccess()}
           {currentView === 'moodHistory' && renderMoodHistory()}
           {currentView === 'activities' && renderActivities()}
-          {currentView === 'meditation' && renderMeditation()}
           {currentView === 'download' && renderDownload()}
         </div>
 
