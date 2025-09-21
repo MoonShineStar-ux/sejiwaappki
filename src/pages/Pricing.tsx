@@ -3,8 +3,11 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Check, Crown } from "lucide-react";
 import BackButton from "@/components/BackButton";
+import { useState } from "react";
 
 const Pricing = () => {
+  const [duration, setDuration] = useState<'weekly' | 'monthly' | 'yearly'>('monthly');
+
   const plans = [
     {
       name: "BASIC",
@@ -80,6 +83,34 @@ const Pricing = () => {
     }
   ];
 
+  const getPrice = (plan: typeof plans[0]) => {
+    return plan.price[duration];
+  };
+
+  const getDurationText = () => {
+    switch (duration) {
+      case 'weekly': return '/ minggu';
+      case 'monthly': return '/ bulan';
+      case 'yearly': return '/ tahun';
+      default: return '/ bulan';
+    }
+  };
+
+  const calculateSavings = (weeklyPrice: string, monthlyPrice: string, yearlyPrice: string) => {
+    const weeklyNum = parseInt(weeklyPrice.replace(/[^\d]/g, ''));
+    const monthlyNum = parseInt(monthlyPrice.replace(/[^\d]/g, ''));
+    const yearlyNum = parseInt(yearlyPrice.replace(/[^\d]/g, ''));
+    
+    if (duration === 'monthly') {
+      const monthlyFromWeekly = weeklyNum * 4;
+      return Math.round((1 - monthlyNum / monthlyFromWeekly) * 100);
+    } else if (duration === 'yearly') {
+      const yearlyFromMonthly = monthlyNum * 12;
+      return Math.round((1 - yearlyNum / yearlyFromMonthly) * 100);
+    }
+    return 0;
+  };
+
   return (
     <div className="min-h-screen bg-gray-50 py-12">
       <div className="container mx-auto px-4">
@@ -87,11 +118,32 @@ const Pricing = () => {
           <BackButton />
         </div>
         
-        <div className="text-center mb-12">
+        <div className="text-center mb-8">
           <h1 className="text-4xl font-bold text-gray-900 mb-4">Pilih Paket yang Tepat untuk Anda</h1>
           <p className="text-gray-600 max-w-2xl mx-auto">
             Mulai perjalanan kesehatan mental Anda dengan paket yang sesuai kebutuhan
           </p>
+        </div>
+
+        {/* Duration Selector */}
+        <div className="flex justify-center mb-8">
+          <div className="bg-white rounded-lg p-1 shadow-sm">
+            <div className="flex space-x-1">
+              {(['weekly', 'monthly', 'yearly'] as const).map((dur) => (
+                <button
+                  key={dur}
+                  onClick={() => setDuration(dur)}
+                  className={`px-6 py-2 rounded-md text-sm font-medium transition-colors ${
+                    duration === dur
+                      ? 'bg-purple-600 text-white'
+                      : 'text-gray-600 hover:text-gray-900'
+                  }`}
+                >
+                  {dur === 'weekly' ? 'Mingguan' : dur === 'monthly' ? 'Bulanan' : 'Tahunan'}
+                </button>
+              ))}
+            </div>
+          </div>
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
@@ -108,8 +160,13 @@ const Pricing = () => {
               <CardHeader>
                 <CardTitle className="text-2xl">{plan.name}</CardTitle>
                 <CardDescription className={plan.free ? "text-green-600 font-bold text-lg" : "text-lg font-semibold text-gray-900"}>
-                  {plan.price.monthly} {plan.free ? "" : "/ bulan"}
+                  {getPrice(plan)} {plan.free ? "" : getDurationText()}
                 </CardDescription>
+                {!plan.free && duration !== 'weekly' && (
+                  <div className="text-sm text-green-600 font-semibold">
+                    💰 Hemat {calculateSavings(plan.price.weekly, plan.price.monthly, plan.price.yearly)}%
+                  </div>
+                )}
               </CardHeader>
               <CardContent>
                 <ul className="space-y-2">
@@ -131,7 +188,7 @@ const Pricing = () => {
         </div>
 
         <div className="text-center">
-          <h2 className="text-2xl font-bold mb-4">Pilihan Durasi Berlangganan</h2>
+          <h2 className="text-2xl font-bold mb-4">Keuntungan Berlangganan</h2>
           <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
             <Card>
               <CardHeader>
@@ -140,28 +197,53 @@ const Pricing = () => {
               <CardContent>
                 <p className="text-2xl font-bold text-purple-600">Flexible</p>
                 <p className="text-sm text-gray-600">Coba dulu sebelum commit</p>
+                <div className="mt-2 text-xs text-gray-500">
+                  ⚡ Cocok untuk trial period
+                </div>
               </CardContent>
             </Card>
             
-            <Card className="border-2 border-purple-600">
+            <Card className={duration === 'monthly' ? "border-2 border-purple-600" : ""}>
               <CardHeader>
                 <CardTitle>Bulanan</CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="text-2xl font-bold text-purple-600">Populer</p>
                 <p className="text-sm text-gray-600">Hemat 15% dari mingguan</p>
+                <div className="mt-2 text-xs text-gray-500">
+                  🏆 Pilihan paling ekonomis
+                </div>
               </CardContent>
             </Card>
             
-            <Card>
+            <Card className={duration === 'yearly' ? "border-2 border-purple-600" : ""}>
               <CardHeader>
                 <CardTitle>Tahunan</CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="text-2xl font-bold text-purple-600">Best Value</p>
                 <p className="text-sm text-gray-600">Hemat 30% dari bulanan</p>
+                <div className="mt-2 text-xs text-gray-500">
+                  💎 Value terbaik untuk komitmen jangka panjang
+                </div>
               </CardContent>
             </Card>
+          </div>
+        </div>
+
+        {/* Additional Info */}
+        <div className="mt-12 bg-white rounded-lg p-6 text-center">
+          <h3 className="text-lg font-semibold mb-4">💡 Tips Memilih Durasi</h3>
+          <div className="grid md:grid-cols-3 gap-4 text-sm text-gray-600">
+            <div>
+              <strong>Mingguan:</strong> Ideal untuk mencoba fitur premium
+            </div>
+            <div>
+              <strong>Bulanan:</strong> Paling fleksibel untuk kebutuhan bulanan
+            </div>
+            <div>
+              <strong>Tahunan:</strong> Hemat maksimal untuk komitmen jangka panjang
+            </div>
           </div>
         </div>
       </div>
