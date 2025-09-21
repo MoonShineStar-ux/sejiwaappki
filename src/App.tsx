@@ -13,6 +13,7 @@ import NotFound from "./pages/NotFound";
 import SejiwaApp from "./pages/SejiwaApp";
 import Terms from "./pages/Terms";
 import Privacy from "./pages/Privacy";
+import Careers from "./pages/Careers";
 
 const queryClient = new QueryClient();
 
@@ -33,6 +34,7 @@ const App = () => {
               <Route path="/how-it-works" element={<HowItWorks />} />
               <Route path="/terms" element={<Terms />} />
               <Route path="/privacy" element={<Privacy />} />
+              <Route path="/careers" element={<Careers />} />
               <Route path="/app" element={<SejiwaApp />} />
               <Route path="*" element={<NotFound />} />
             </Routes>

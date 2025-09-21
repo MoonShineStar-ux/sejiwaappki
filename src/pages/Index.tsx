@@ -107,8 +107,8 @@ const Index = () => {
               <h4 className="font-semibold mb-4">Perusahaan</h4>
               <ul className="space-y-2 text-gray-400">
                 <li><Link to="/about" className="hover:text-white">Tentang Kami</Link></li>
-                <li><Link to="/contact" className="hover:text-white">Kontak</Link></li>
                 <li><Link to="/careers" className="hover:text-white">Karir</Link></li>
+                <li><Link to="/contact" className="hover:text-white">Kontak</Link></li>
               </ul>
             </div>
             <div>
