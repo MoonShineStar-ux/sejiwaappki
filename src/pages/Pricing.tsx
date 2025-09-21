@@ -32,9 +32,9 @@ const Pricing = () => {
     {
       name: "VIP",
       price: {
-        weekly: "Rp 50.000",
-        monthly: "Rp 150.000",
-        yearly: "Rp 1.500.000"
+        weekly: "Rp 7.000",
+        monthly: "Rp 9.000",
+        yearly: "Rp 45.000"
       },
       features: [
         { text: "Support di jam kerja", included: true },
@@ -53,9 +53,9 @@ const Pricing = () => {
     {
       name: "PREMIUM",
       price: {
-        weekly: "Rp 100.000",
-        monthly: "Rp 300.000",
-        yearly: "Rp 3.000.000"
+        weekly: "Rp 20.000",
+        monthly: "Rp 45.000",
+        yearly: "Rp 270.000"
       },
       features: [
         { text: "Support 24/7", included: true },
@@ -78,9 +78,9 @@ const Pricing = () => {
     {
       name: "ELITE",
       price: {
-        weekly: "Rp 200.000",
-        monthly: "Rp 600.000",
-        yearly: "Rp 6.000.000"
+        weekly: "Rp 50.000",
+        monthly: "Rp 100.000",
+        yearly: "Rp 500.000"
       },
       features: [
         { text: "Support 24/7", included: true },
@@ -183,6 +183,11 @@ const Pricing = () => {
                 <CardDescription className={plan.free ? "text-green-600 font-bold text-lg" : "text-lg font-semibold text-gray-900"}>
                   {getPrice(plan)} {plan.free ? "" : getDurationText()}
                 </CardDescription>
+                {!plan.free && (
+                  <div className="text-xs text-gray-500 mt-1">
+                    *harga belum termasuk pajak
+                  </div>
+                )}
                 {!plan.free && duration !== 'weekly' && (
                   <div className="text-sm text-green-600 font-semibold">
                     💰 Hemat {calculateSavings(plan.price.weekly, plan.price.monthly, plan.price.yearly)}%
