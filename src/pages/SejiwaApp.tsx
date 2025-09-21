@@ -22,7 +22,7 @@ import {
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { PoweredBySejiwaapp } from '@/components/PoweredBySejiwaapp';
-import Logo from '@/components/Logo'; // Import komponen logo baru
+import Logo from '@/components/Logo';
 
 const SejiwaApp = () => {
   const [currentView, setCurrentView] = useState('main');

@@ -4,7 +4,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Star, Users, Shield, Play, Download, Brain, Cloud, Smile, Activity } from "lucide-react";
 import VisitorCounter from "@/components/VisitorCounter";
 import { PoweredBySejiwaapp } from "@/components/PoweredBySejiwaapp";
-import Logo from "@/components/Logo"; // Import komponen logo baru
+import Logo from "@/components/Logo";
 
 const Index = () => {
   return (

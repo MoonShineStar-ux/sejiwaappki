@@ -13,14 +13,26 @@ const Logo = ({ className = '', size = 'md' }: LogoProps) => {
     xl: 'h-16 w-16'
   };
 
+  const textSizes = {
+    sm: 'text-lg',
+    md: 'text-xl',
+    lg: 'text-2xl',
+    xl: 'text-3xl'
+  };
+
   return (
     <div className={`flex items-center ${className}`}>
       <img 
         src="/logo.jpeg" 
         alt="SEJIWAAPP Logo"
-        className={`${sizeClasses[size]} object-contain mr-2`}
+        className={`${sizeClasses[size]} object-contain mr-2 rounded-lg`}
+        onError={(e) => {
+          // Fallback jika gambar tidak ditemukan
+          const target = e.target as HTMLImageElement;
+          target.style.display = 'none';
+        }}
       />
-      <span className="text-2xl font-bold text-gray-900">sejiwaapp</span>
+      <span className={`${textSizes[size]} font-bold text-gray-900`}>sejiwaapp</span>
     </div>
   );
 };
