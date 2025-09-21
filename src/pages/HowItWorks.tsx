@@ -6,23 +6,23 @@ const HowItWorks = () => {
   const steps = [
     {
       icon: <User className="h-8 w-8" />,
-      title: "Mendaftar dan Membuat Profil",
-      description: "Buat profil dengan foto asli dan isi minat Anda untuk mendapatkan rekomendasi yang tepat"
+      title: "Buat Profil Menarik",
+      description: "Isi profil dengan foto terbaik dan ceritakan tentang diri Anda"
     },
     {
       icon: <Heart className="h-8 w-8" />,
-      title: "Menjelajahi Profil",
-      description: "Lihat profil orang-orang di sekitar Anda dan geser ke kanan jika tertarik"
+      title: "Temukan & Swipe",
+      description: "Jelajahi profil dan swipe kanan jika tertarik, kiri jika tidak"
     },
     {
       icon: <MessageCircle className="h-8 w-8" />,
-      title: "Mencocokkan (It's a Match!)",
-      description: "Jika mereka juga menyukai Anda, itu berarti kalian cocok dan bisa mulai mengobrol"
+      title: "Mulai Percakapan",
+      description: "Kirim pesan pertama dan bangun chemistry"
     },
     {
       icon: <Video className="h-8 w-8" />,
-      title: "Mengobrol dan Berkencan",
-      description: "Gunakan fitur chat teks, suara, gambar, dan video untuk mengenal satu sama lain lebih baik"
+      title: "Video Call & Kencan",
+      description: "Lanjutkan dengan video call atau rencanakan kencan offline"
     }
   ];
 
@@ -30,27 +30,27 @@ const HowItWorks = () => {
     {
       icon: <Shield className="h-6 w-6" />,
       title: "Verifikasi Pengguna",
-      description: "Sistem moderasi untuk mengidentifikasi foto asli dan memverifikasi pengguna"
+      description: "Sistem moderasi untuk memverifikasi keaslian pengguna"
     },
     {
       icon: <Users className="h-6 w-6" />,
-      title: "Koneksi Jujur",
-      description: "Menekankan pada koneksi yang otentik, baik di dunia maya maupun dalam kehidupan nyata"
+      title: "Koneksi Berkualitas",
+      description: "Temukan orang-orang dengan minat dan nilai yang sama"
     },
     {
       icon: <Shield className="h-6 w-6" />,
       title: "Kontrol Privasi",
-      description: "Pilih untuk menyembunyikan kontak Anda agar tidak muncul dalam saran di aplikasi"
+      description: "Atur siapa yang bisa melihat profil dan kontak Anda"
     },
     {
       icon: <MessageCircle className="h-6 w-6" />,
-      title: "Fitur Interaktif",
-      description: "Obrolan waktu nyata, pesan suara, dan gambar untuk mempermudah interaksi"
+      title: "Fitur Chat Lengkap",
+      description: "Pesan teks, suara, gambar, dan video call dalam satu aplikasi"
     }
   ];
 
   return (
-    <div className="min-h-screen bg-white py-12">
+    <div className="min-h-screen bg-gradient-to-br from-pink-50 to-red-50 py-12">
       <div className="container mx-auto px-4">
         <div className="mb-6">
           <BackButton />
@@ -59,18 +59,18 @@ const HowItWorks = () => {
         <div className="text-center mb-12">
           <h1 className="text-4xl font-bold text-gray-900 mb-4">Cara Kerja SEJIWAAPP</h1>
           <p className="text-gray-600 max-w-2xl mx-auto">
-            Temukan cara mudah untuk terhubung dengan orang baru dan memperluas lingkaran sosial Anda
+            Temukan cara mudah untuk terhubung dengan single lainnya dan memulai perjalanan cinta Anda
           </p>
         </div>
 
         {/* Steps Section */}
         <div className="mb-16">
-          <h2 className="text-2xl font-bold text-center mb-8">4 Langkah Mudah</h2>
+          <h2 className="text-2xl font-bold text-center mb-8">4 Langkah Mudah Menemukan Cinta</h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {steps.map((step, index) => (
               <Card key={index} className="text-center">
                 <CardHeader>
-                  <div className="text-purple-600 mx-auto mb-4">{step.icon}</div>
+                  <div className="text-pink-600 mx-auto mb-4">{step.icon}</div>
                   <CardTitle className="text-lg">{step.title}</CardTitle>
                 </CardHeader>
                 <CardContent>
@@ -88,7 +88,7 @@ const HowItWorks = () => {
             {features.map((feature, index) => (
               <Card key={index}>
                 <CardHeader className="flex flex-row items-center space-y-0">
-                  <div className="text-purple-600 mr-4">{feature.icon}</div>
+                  <div className="text-pink-600 mr-4">{feature.icon}</div>
                   <div>
                     <CardTitle className="text-lg">{feature.title}</CardTitle>
                   </div>
@@ -101,53 +101,41 @@ const HowItWorks = () => {
           </div>
         </div>
 
-        {/* Live Room Section */}
-        <div className="bg-purple-50 rounded-lg p-8">
-          <h2 className="text-2xl font-bold text-center mb-6">Live Room</h2>
+        {/* Success Stories Section */}
+        <div className="bg-pink-50 rounded-lg p-8">
+          <h2 className="text-2xl font-bold text-center mb-6">🎉 Success Stories</h2>
           <div className="grid md:grid-cols-2 gap-8">
             <div>
-              <h3 className="text-xl font-semibold mb-4">Fitur Live Streaming</h3>
-              <ul className="space-y-3 text-gray-700">
-                <li className="flex items-center">
-                  <div className="w-2 h-2 bg-purple-600 rounded-full mr-3"></div>
-                  <span>Live streaming dengan host profesional</span>
-                </li>
-                <li className="flex items-center">
-                  <div className="w-2 h-2 bg-purple-600 rounded-full mr-3"></div>
-                  <span>Menerima gift dari viewers</span>
-                </li>
-                <li className="flex items-center">
-                  <div className="w-2 h-2 bg-purple-600 rounded-full mr-3"></div>
-                  <span>Withdraw gift yang diterima</span>
-                </li>
-                <li className="flex items-center">
-                  <div className="w-2 h-2 bg-purple-600 rounded-full mr-3"></div>
-                  <span>Live bersama host Komal</span>
-                </li>
-                <li className="flex items-center">
-                  <div className="w-2 h-2 bg-purple-600 rounded-full mr-3"></div>
-                  <span>PK (Player Kill) dengan user lain</span>
-                </li>
-              </ul>
+              <h3 className="text-xl font-semibold mb-4">Cerita Sukses</h3>
+              <div className="space-y-4 text-gray-700">
+                <div className="bg-white p-4 rounded-lg">
+                  <p className="font-semibold">Rina & Budi - Bertemu 2023</p>
+                  <p className="text-sm">"Kami bertemu melalui SEJIWAAPP dan sekarang sedang merencanakan pernikahan!"</p>
+                </div>
+                <div className="bg-white p-4 rounded-lg">
+                  <p className="font-semibold">Sari & Doni - Bertemu 2024</p>
+                  <p className="text-sm">"Algoritma matching-nya sangat akurat! Kami langsung klik sejak chat pertama"</p>
+                </div>
+              </div>
             </div>
             <div>
-              <h3 className="text-xl font-semibold mb-4">Tujuan SEJIWAAPP</h3>
+              <h3 className="text-xl font-semibold mb-4">Tips dari Kami</h3>
               <ul className="space-y-3 text-gray-700">
                 <li className="flex items-center">
-                  <div className="w-2 h-2 bg-purple-600 rounded-full mr-3"></div>
-                  <span>Menemukan teman dan jodoh</span>
+                  <div className="w-2 h-2 bg-pink-600 rounded-full mr-3"></div>
+                  <span>Gunakan foto asli dan terbaru</span>
                 </li>
                 <li className="flex items-center">
-                  <div className="w-2 h-2 bg-purple-600 rounded-full mr-3"></div>
-                  <span>Memperluas lingkaran sosial</span>
+                  <div className="w-2 h-2 bg-pink-600 rounded-full mr-3"></div>
+                  <span>Jujur dalam mengisi profil</span>
                 </li>
                 <li className="flex items-center">
-                  <div className="w-2 h-2 bg-purple-600 rounded-full mr-3"></div>
-                  <span>Bertemu orang baru dengan minat sama</span>
+                  <div className="w-2 h-2 bg-pink-600 rounded-full mr-3"></div>
+                  <span>Jadilah diri sendiri</span>
                 </li>
                 <li className="flex items-center">
-                  <div className="w-2 h-2 bg-purple-600 rounded-full mr-3"></div>
-                  <span>Membangun koneksi yang meaningful</span>
+                  <div className="w-2 h-2 bg-pink-600 rounded-full mr-3"></div>
+                  <span>Sabar dalam proses pencarian</span>
                 </li>
               </ul>
             </div>

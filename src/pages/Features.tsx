@@ -1,43 +1,43 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Brain, MessageCircle, Users, BookOpen, Calendar, BarChart3 } from "lucide-react";
+import { Heart, MessageCircle, Users, Video, Shield, Star } from "lucide-react";
 import BackButton from "@/components/BackButton";
 
 const Features = () => {
   const features = [
     {
+      icon: <Heart className="h-8 w-8" />,
+      title: "Swipe & Match",
+      description: "Temukan pasangan dengan swipe mudah dan sistem matching cerdas"
+    },
+    {
       icon: <MessageCircle className="h-8 w-8" />,
-      title: "Konseling 1-on-1",
-      description: "Sesi privat dengan konselor profesional melalui chat, voice, atau video call"
+      title: "Chat Premium",
+      description: "Kirim pesan teks, suara, dan gambar dengan fitur read receipt"
+    },
+    {
+      icon: <Video className="h-8 w-8" />,
+      title: "Video Call",
+      description: "Video call berkualitas tinggi tanpa perlu keluar aplikasi"
+    },
+    {
+      icon: <Shield className="h-8 w-8" />,
+      title: "Verifikasi Profil",
+      description: "Sistem verifikasi untuk memastikan keaslian setiap profil"
     },
     {
       icon: <Users className="h-8 w-8" />,
-      title: "Support Group",
-      description: "Bergabung dengan komunitas yang saling mendukung dan berbagi pengalaman"
+      title: "Komunitas Eksklusif",
+      description: "Bergabung dengan komunitas single professionals Indonesia"
     },
     {
-      icon: <Brain className="h-8 w-8" />,
-      title: "Meditasi Terpandu",
-      description: "Koleksi meditasi untuk mengurangi stres dan meningkatkan fokus"
-    },
-    {
-      icon: <BookOpen className="h-8 w-8" />,
-      title: "Journaling Mood",
-      description: "Lacak perasaan dan emosi Anda dengan tools journaling yang intuitif"
-    },
-    {
-      icon: <Calendar className="h-8 w-8" />,
-      title: "Progress Tracking",
-      description: "Pantau perkembangan kesehatan mental Anda dengan analytics yang detail"
-    },
-    {
-      icon: <BarChart3 className="h-8 w-8" />,
-      title: "Personalized Plan",
-      description: "Program yang disesuaikan dengan kebutuhan dan tujuan pribadi Anda"
+      icon: <Star className="h-8 w-8" />,
+      title: "Premium Features",
+      description: "Akses fitur premium untuk meningkatkan peluang menemukan jodoh"
     }
   ];
 
   return (
-    <div className="min-h-screen bg-white py-12">
+    <div className="min-h-screen bg-gradient-to-br from-pink-50 to-red-50 py-12">
       <div className="container mx-auto px-4">
         <div className="mb-6">
           <BackButton />
@@ -46,7 +46,8 @@ const Features = () => {
         <div className="text-center mb-12">
           <h1 className="text-4xl font-bold text-gray-900 mb-4">Fitur Unggulan SEJIWAAPP</h1>
           <p className="text-gray-600 max-w-2xl mx-auto">
-            Temukan berbagai fitur yang dirancang khusus untuk mendukung perjalanan kesehatan mental Anda
+            Temukan berbagai fitur canggih yang dirancang khusus untuk membantu Anda 
+            menemukan pasangan ideal dengan cara yang menyenangkan
           </p>
         </div>
 
@@ -54,7 +55,7 @@ const Features = () => {
           {features.map((feature, index) => (
             <Card key={index} className="hover:shadow-lg transition-shadow">
               <CardHeader>
-                <div className="text-purple-600 mb-4">{feature.icon}</div>
+                <div className="text-pink-600 mb-4">{feature.icon}</div>
                 <CardTitle>{feature.title}</CardTitle>
               </CardHeader>
               <CardContent>
@@ -65,11 +66,11 @@ const Features = () => {
         </div>
 
         <div className="text-center mt-12">
-          <h2 className="text-2xl font-bold mb-4">Mulai Perjalanan Anda Hari Ini</h2>
+          <h2 className="text-2xl font-bold mb-4">Mulai Perjalanan Cinta Anda</h2>
           <p className="text-gray-600 mb-6">
-            Bergabung dengan ribuan anggota yang telah merasakan manfaat SEJIWAAPP
+            Bergabung dengan ribuan anggota yang telah menemukan pasangan melalui SEJIWAAPP
           </p>
-          <button className="bg-purple-600 text-white px-8 py-3 rounded-lg hover:bg-purple-700 transition-colors">
+          <button className="bg-pink-600 text-white px-8 py-3 rounded-lg hover:bg-pink-700 transition-colors">
             Daftar Sekarang
           </button>
         </div>
