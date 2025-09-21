@@ -48,7 +48,7 @@ const SejiwaApp = () => {
 
   const renderMainMenu = () => (
     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-      <Card className="cursor-pointer hover:shadow-lg transition-shadow" onClick={() => setCurrentView('moodTrack')}>
+      <Card className="cursor-pointer hover:shadow-lg transition-shadow bg-white/90 backdrop-blur-sm" onClick={() => setCurrentView('moodTrack')}>
         <CardHeader>
           <div className="flex items-center justify-center w-16 h-16 bg-green-100 rounded-full mb-4">
             <Smile className="h-8 w-8 text-green-600" />
@@ -58,7 +58,7 @@ const SejiwaApp = () => {
         </CardHeader>
       </Card>
 
-      <Card className="cursor-pointer hover:shadow-lg transition-shadow" onClick={() => setCurrentView('moodHistory')}>
+      <Card className="cursor-pointer hover:shadow-lg transition-shadow bg-white/90 backdrop-blur-sm" onClick={() => setCurrentView('moodHistory')}>
         <CardHeader>
           <div className="flex items-center justify-center w-16 h-16 bg-purple-100 rounded-full mb-4">
             <Calendar className="h-8 w-8 text-purple-600" />
@@ -68,7 +68,7 @@ const SejiwaApp = () => {
         </CardHeader>
       </Card>
 
-      <Card className="cursor-pointer hover:shadow-lg transition-shadow" onClick={() => setCurrentView('download')}>
+      <Card className="cursor-pointer hover:shadow-lg transition-shadow bg-white/90 backdrop-blur-sm" onClick={() => setCurrentView('download')}>
         <CardHeader>
           <div className="flex items-center justify-center w-16 h-16 bg-red-100 rounded-full mb-4">
             <Download className="h-8 w-8 text-red-600" />
@@ -82,7 +82,7 @@ const SejiwaApp = () => {
 
   const renderMoodTrack = () => (
     <div className="space-y-6">
-      <Card>
+      <Card className="bg-white/90 backdrop-blur-sm">
         <CardHeader>
           <CardTitle>Bagaimana perasaan Anda hari ini?</CardTitle>
           <CardDescription>Pilih mood yang paling menggambarkan perasaan Anda</CardDescription>
@@ -95,7 +95,7 @@ const SejiwaApp = () => {
                 className={`p-4 rounded-lg text-center cursor-pointer transition-all ${
                   currentMood === mood.id
                     ? `${mood.color} text-white scale-105`
-                    : 'bg-gray-100 hover:bg-gray-200'
+                    : 'bg-white/80 hover:bg-white'
                 }`}
                 onClick={() => setCurrentMood(mood.id)}
               >
@@ -111,8 +111,9 @@ const SejiwaApp = () => {
                 placeholder="Tambahkan catatan (opsional)"
                 value={moodNote}
                 onChange={(e) => setMoodNote(e.target.value)}
+                className="bg-white/80"
               />
-              <Button className="w-full" onClick={trackMood}>
+              <Button className="w-full bg-purple-600 hover:bg-purple-700">
                 Simpan Mood
               </Button>
             </div>
@@ -120,10 +121,10 @@ const SejiwaApp = () => {
         </CardContent>
       </Card>
       <div className="flex gap-4">
-        <Button variant="outline" onClick={() => setCurrentView('main')}>
+        <Button variant="outline" className="bg-white/80 hover:bg-white" onClick={() => setCurrentView('main')}>
           Kembali ke Menu
         </Button>
-        <Button variant="outline" asChild>
+        <Button variant="outline" className="bg-white/80 hover:bg-white" asChild>
           <Link to="/">
             <Home className="h-4 w-4 mr-2" />
             Kembali ke Home
@@ -135,19 +136,19 @@ const SejiwaApp = () => {
 
   const renderMoodSuccess = () => (
     <div className="text-center space-y-6">
-      <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+      <div className="w-20 h-20 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4 backdrop-blur-sm">
         <div className="text-3xl">🎉</div>
       </div>
-      <h2 className="text-2xl font-bold">Mood Berhasil Dicatat!</h2>
-      <p className="text-gray-600">Terima kasih telah melacak perasaan Anda hari ini.</p>
+      <h2 className="text-2xl font-bold text-white">Mood Berhasil Dicatat!</h2>
+      <p className="text-white/80">Terima kasih telah melacak perasaan Anda hari ini.</p>
       <div className="space-y-4">
         <div className="flex gap-4 justify-center">
-          <Button onClick={() => setCurrentView('moodHistory')}>Lihat Riwayat</Button>
-          <Button variant="outline" onClick={() => setCurrentView('main')}>
+          <Button className="bg-purple-600 hover:bg-purple-700" onClick={() => setCurrentView('moodHistory')}>Lihat Riwayat</Button>
+          <Button variant="outline" className="bg-white/80 hover:bg-white" onClick={() => setCurrentView('main')}>
             Kembali ke Menu
           </Button>
         </div>
-        <Button variant="outline" asChild>
+        <Button variant="outline" className="bg-white/80 hover:bg-white" asChild>
           <Link to="/">
             <Home className="h-4 w-4 mr-2" />
             Kembali ke Home
@@ -159,7 +160,7 @@ const SejiwaApp = () => {
 
   const renderMoodHistory = () => (
     <div className="space-y-6">
-      <Card>
+      <Card className="bg-white/90 backdrop-blur-sm">
         <CardHeader>
           <CardTitle>Riwayat Mood</CardTitle>
           <CardDescription>Perkembangan mood Anda dari waktu ke waktu</CardDescription>
@@ -173,7 +174,7 @@ const SejiwaApp = () => {
           ) : (
             <div className="space-y-4">
               {moodData.map((entry) => (
-                <div key={entry.id} className="flex items-center justify-between p-4 border rounded-lg">
+                <div key={entry.id} className="flex items-center justify-between p-4 border rounded-lg bg-white/80">
                   <div className="flex items-center space-x-4">
                     <span className="text-2xl">{entry.emoji}</span>
                     <div>
@@ -189,10 +190,10 @@ const SejiwaApp = () => {
         </CardContent>
       </Card>
       <div className="flex gap-4">
-        <Button variant="outline" onClick={() => setCurrentView('main')}>
+        <Button variant="outline" className="bg-white/80 hover:bg-white" onClick={() => setCurrentView('main')}>
           Kembali ke Menu
         </Button>
-        <Button variant="outline" asChild>
+        <Button variant="outline" className="bg-white/80 hover:bg-white" asChild>
           <Link to="/">
             <Home className="h-4 w-4 mr-2" />
             Kembali ke Home
@@ -204,37 +205,37 @@ const SejiwaApp = () => {
 
   const renderDownload = () => (
     <div className="space-y-6">
-      <Card>
+      <Card className="bg-white/90 backdrop-blur-sm">
         <CardHeader>
           <CardTitle>Download Aplikasi SEJIWAAPP</CardTitle>
           <CardDescription>Tersedia di berbagai platform</CardDescription>
         </CardHeader>
         <CardContent>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="text-center p-6 border rounded-lg">
+            <div className="text-center p-6 border rounded-lg bg-white/80">
               <ShoppingBag className="h-12 w-12 text-green-600 mx-auto mb-4" />
               <h3 className="font-semibold mb-2">Google Play Store</h3>
               <p className="text-sm text-gray-600 mb-4">Untuk perangkat Android</p>
-              <Button className="w-full">
+              <Button className="w-full bg-purple-600 hover:bg-purple-700">
                 <Download className="h-4 w-4 mr-2" />
                 Download
               </Button>
             </div>
 
-            <div className="text-center p-6 border rounded-lg">
+            <div className="text-center p-6 border rounded-lg bg-white/80">
               <div className="w-12 h-12 bg-gray-600 rounded-full flex items-center justify-center mx-auto mb-4">
                 <span className="text-white text-xl">􀣺</span>
               </div>
               <h3 className="font-semibold mb-2">Apple App Store</h3>
               <p className="text-sm text-gray-600 mb-4">Untuk perangkat iOS</p>
-              <Button className="w-full">
+              <Button className="w-full bg-purple-600 hover:bg-purple-700">
                 <Download className="h-4 w-4 mr-2" />
                 Download
               </Button>
             </div>
           </div>
 
-          <div className="mt-8 p-6 bg-purple-50 rounded-lg">
+          <div className="mt-8 p-6 bg-purple-50/80 rounded-lg backdrop-blur-sm">
             <h3 className="font-semibold mb-4">🎁 Fitur lengkap di aplikasi mobile:</h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
               <div className="flex items-center">
@@ -258,10 +259,10 @@ const SejiwaApp = () => {
         </CardContent>
       </Card>
       <div className="flex gap-4">
-        <Button variant="outline" onClick={() => setCurrentView('main')}>
+        <Button variant="outline" className="bg-white/80 hover:bg-white" onClick={() => setCurrentView('main')}>
           Kembali ke Menu
         </Button>
-        <Button variant="outline" asChild>
+        <Button variant="outline" className="bg-white/80 hover:bg-white" asChild>
           <Link to="/">
             <Home className="h-4 w-4 mr-2" />
             Kembali ke Home
@@ -272,17 +273,17 @@ const SejiwaApp = () => {
   );
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-50 to-blue-50">
+    <div className="min-h-screen bg-gradient-to-br from-[#2D145B] to-[#6E0032]">
       <div className="container mx-auto px-4 py-8">
         {/* Header dengan tombol kembali ke home */}
         <div className="flex items-center justify-between mb-8">
           <div className="flex items-center">
-            <Button variant="ghost" size="icon" asChild className="mr-4">
+            <Button variant="ghost" size="icon" asChild className="mr-4 bg-white/20 hover:bg-white/30 text-white">
               <Link to="/">
                 <Home className="h-5 w-5" />
               </Link>
             </Button>
-            <Logo size="md" />
+            <Logo size="md" className="text-white" />
           </div>
         </div>
 
