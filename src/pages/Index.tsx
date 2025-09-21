@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { MadeWithDyad } from "@/components/made-with-dyad";
 import { Star, Users, Shield, Heart, Play, Download, Brain, Cloud, Smile, Activity } from "lucide-react";
+import VisitorCounter from "@/components/VisitorCounter"; // Import komponen baru
 
 const Index = () => {
   return (
@@ -53,6 +54,11 @@ const Index = () => {
             </Button>
           </div>
         </div>
+      </section>
+
+      {/* Visitor Counter Section */}
+      <section className="container mx-auto px-4 mb-16">
+        <VisitorCounter />
       </section>
 
       {/* Features Section */}
