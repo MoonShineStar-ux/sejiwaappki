@@ -26,8 +26,10 @@ import {
   Instagram,
   Twitter,
   Apple,
-  ShoppingBag // Mengganti GooglePlay dengan ShoppingBag
+  ShoppingBag,
+  Home // Menambahkan icon Home
 } from 'lucide-react';
+import { Link } from 'react-router-dom'; // Menambahkan Link untuk navigasi
 
 const SejiwaApp = () => {
   const [currentView, setCurrentView] = useState('main');
@@ -192,7 +194,15 @@ const SejiwaApp = () => {
           </div>
         </CardContent>
       </Card>
-      <Button onClick={() => setCurrentView('main')}>Kembali ke Menu</Button>
+      <div className="flex gap-4">
+        <Button onClick={() => setCurrentView('main')}>Kembali ke Menu</Button>
+        <Button variant="outline" asChild>
+          <Link to="/">
+            <Home className="h-4 w-4 mr-2" />
+            Kembali ke Home
+          </Link>
+        </Button>
+      </div>
     </div>
   );
 
@@ -235,9 +245,17 @@ const SejiwaApp = () => {
           )}
         </CardContent>
       </Card>
-      <Button variant="outline" onClick={() => setCurrentView('main')}>
-        Kembali ke Menu
-      </Button>
+      <div className="flex gap-4">
+        <Button variant="outline" onClick={() => setCurrentView('main')}>
+          Kembali ke Menu
+        </Button>
+        <Button variant="outline" asChild>
+          <Link to="/">
+            <Home className="h-4 w-4 mr-2" />
+            Kembali ke Home
+          </Link>
+        </Button>
+      </div>
     </div>
   );
 
@@ -248,10 +266,18 @@ const SejiwaApp = () => {
       </div>
       <h2 className="text-2xl font-bold">Mood Berhasil Dicatat!</h2>
       <p className="text-gray-600">Terima kasih telah melacak perasaan Anda hari ini.</p>
-      <div className="space-y-2">
-        <Button onClick={() => setCurrentView('moodHistory')}>Lihat Riwayat</Button>
-        <Button variant="outline" onClick={() => setCurrentView('main')}>
-          Kembali ke Menu
+      <div className="space-y-4">
+        <div className="flex gap-4 justify-center">
+          <Button onClick={() => setCurrentView('moodHistory')}>Lihat Riwayat</Button>
+          <Button variant="outline" onClick={() => setCurrentView('main')}>
+            Kembali ke Menu
+          </Button>
+        </div>
+        <Button variant="outline" asChild>
+          <Link to="/">
+            <Home className="h-4 w-4 mr-2" />
+            Kembali ke Home
+          </Link>
         </Button>
       </div>
     </div>
@@ -288,9 +314,17 @@ const SejiwaApp = () => {
           )}
         </CardContent>
       </Card>
-      <Button variant="outline" onClick={() => setCurrentView('main')}>
-        Kembali ke Menu
-      </Button>
+      <div className="flex gap-4">
+        <Button variant="outline" onClick={() => setCurrentView('main')}>
+          Kembali ke Menu
+        </Button>
+        <Button variant="outline" asChild>
+          <Link to="/">
+            <Home className="h-4 w-4 mr-2" />
+            Kembali ke Home
+          </Link>
+        </Button>
+      </div>
     </div>
   );
 
@@ -316,9 +350,17 @@ const SejiwaApp = () => {
           </div>
         </CardContent>
       </Card>
-      <Button variant="outline" onClick={() => setCurrentView('main')}>
-        Kembali ke Menu
-      </Button>
+      <div className="flex gap-4">
+        <Button variant="outline" onClick={() => setCurrentView('main')}>
+          Kembali ke Menu
+        </Button>
+        <Button variant="outline" asChild>
+          <Link to="/">
+            <Home className="h-4 w-4 mr-2" />
+            Kembali ke Home
+          </Link>
+        </Button>
+      </div>
     </div>
   );
 
@@ -359,9 +401,17 @@ const SejiwaApp = () => {
           </div>
         </CardContent>
       </Card>
-      <Button variant="outline" onClick={() => setCurrentView('main')}>
-        Kembali ke Menu
-      </Button>
+      <div className="flex gap-4">
+        <Button variant="outline" onClick={() => setCurrentView('main')}>
+          Kembali ke Menu
+        </Button>
+        <Button variant="outline" asChild>
+          <Link to="/">
+            <Home className="h-4 w-4 mr-2" />
+            Kembali ke Home
+          </Link>
+        </Button>
+      </div>
     </div>
   );
 
@@ -422,9 +472,17 @@ const SejiwaApp = () => {
           </div>
         </CardContent>
       </Card>
-      <Button variant="outline" onClick={() => setCurrentView('main')}>
-        Kembali ke Menu
-      </Button>
+      <div className="flex gap-4">
+        <Button variant="outline" onClick={() => setCurrentView('main')}>
+          Kembali ke Menu
+        </Button>
+        <Button variant="outline" asChild>
+          <Link to="/">
+            <Home className="h-4 w-4 mr-2" />
+            Kembali ke Home
+          </Link>
+        </Button>
+      </div>
     </div>
   );
 
@@ -485,13 +543,22 @@ const SejiwaApp = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-purple-50 to-blue-50">
       <div className="container mx-auto px-4 py-8">
-        {/* Header */}
-        <div className="text-center mb-8">
-          <div className="flex items-center justify-center mb-4">
-            <Heart className="h-8 w-8 text-purple-600 mr-2" />
-            <h1 className="text-3xl font-bold text-gray-900">SEJIWAAPP</h1>
+        {/* Header dengan tombol kembali ke home */}
+        <div className="flex items-center justify-between mb-8">
+          <div className="flex items-center">
+            <Button variant="ghost" size="icon" asChild className="mr-4">
+              <Link to="/">
+                <Home className="h-5 w-5" />
+              </Link>
+            </Button>
+            <div className="text-center">
+              <div className="flex items-center justify-center mb-2">
+                <Heart className="h-8 w-8 text-purple-600 mr-2" />
+                <h1 className="text-3xl font-bold text-gray-900">SEJIWAAPP</h1>
+              </div>
+              <p className="text-gray-600">Platform Kesehatan Mental Terpadu</p>
+            </div>
           </div>
-          <p className="text-gray-600">Platform Kesehatan Mental Terpadu</p>
         </div>
 
         {/* Main Content */}
