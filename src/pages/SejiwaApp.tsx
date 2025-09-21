@@ -144,7 +144,7 @@ const SejiwaApp = () => {
             <Brain className="h-8 w-8 text-indigo-600" />
           </div>
           <CardTitle>Panduan Meditasi</CardTitle>
-          <CardDescription>Mulai sesi meditasi terpandu</CardDescription>
+          <CardDescription>Pilih jenis meditasi yang ingin Anda praktikkan</CardDescription>
         </CardHeader>
       </Card>
 
