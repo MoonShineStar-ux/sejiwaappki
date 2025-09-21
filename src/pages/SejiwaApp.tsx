@@ -2,20 +2,11 @@ import React, { useState } from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
-import { Badge } from '@/components/ui/badge';
 import { 
-  Cloud, 
-  Sun, 
-  CloudRain, 
-  CloudSnow, 
-  CloudLightning,
   Smile,
   Meh,
   Calendar,
-  Activity,
   Download,
-  Play,
-  Clock,
   ShoppingBag,
   Home
 } from 'lucide-react';
@@ -29,15 +20,6 @@ const SejiwaApp = () => {
   const [currentMood, setCurrentMood] = useState<number | null>(null);
   const [moodNote, setMoodNote] = useState('');
 
-  // Data cuaca
-  const weatherData = {
-    city: "Jakarta",
-    temperature: 28,
-    condition: "Clear",
-    humidity: 65,
-    wind: 12
-  };
-
   // Mood options
   const moodOptions = [
     { id: 1, emoji: '😊', label: 'Sangat Baik', color: 'bg-green-500' },
@@ -45,17 +27,6 @@ const SejiwaApp = () => {
     { id: 3, emoji: '😐', label: 'Biasa saja', color: 'bg-yellow-500' },
     { id: 4, emoji: '😕', label: 'Buruk', color: 'bg-orange-500' },
     { id: 5, emoji: '😢', label: 'Sangat Buruk', color: 'bg-red-500' }
-  ];
-
-  // Activity suggestions
-  const activitySuggestions = [
-    "Hubungi teman untuk berbicara",
-    "Tulis jurnal perasaan",
-    "Dengarkan musik yang menenangkan",
-    "Berjalan-jalan sebentar",
-    "Baca buku inspiratif",
-    "Olahraga ringan",
-    "Minum air putih yang cukup"
   ];
 
   const trackMood = () => {
@@ -75,29 +46,8 @@ const SejiwaApp = () => {
     }
   };
 
-  const getWeatherIcon = () => {
-    switch (weatherData.condition) {
-      case 'Clear': return <Sun className="h-12 w-12 text-yellow-500" />;
-      case 'Rain': return <CloudRain className="h-12 w-12 text-blue-500" />;
-      case 'Clouds': return <Cloud className="h-12 w-12 text-gray-500" />;
-      case 'Snow': return <CloudSnow className="h-12 w-12 text-blue-300" />;
-      case 'Thunderstorm': return <CloudLightning className="h-12 w-12 text-purple-500" />;
-      default: return <Cloud className="h-12 w-12 text-gray-500" />;
-    }
-  };
-
   const renderMainMenu = () => (
     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-      <Card className="cursor-pointer hover:shadow-lg transition-shadow" onClick={() => setCurrentView('weather')}>
-        <CardHeader>
-          <div className="flex items-center justify-center w-16 h-16 bg-blue-100 rounded-full mb-4">
-            <Cloud className="h-8 w-8 text-blue-600" />
-          </div>
-          <CardTitle>Informasi Cuaca</CardTitle>
-          <CardDescription>Lihat kondisi cuaca terkini</CardDescription>
-        </CardHeader>
-      </Card>
-
       <Card className="cursor-pointer hover:shadow-lg transition-shadow" onClick={() => setCurrentView('moodTrack')}>
         <CardHeader>
           <div className="flex items-center justify-center w-16 h-16 bg-green-100 rounded-full mb-4">
@@ -118,16 +68,6 @@ const SejiwaApp = () => {
         </CardHeader>
       </Card>
 
-      <Card className="cursor-pointer hover:shadow-lg transition-shadow" onClick={() => setCurrentView('activities')}>
-        <CardHeader>
-          <div className="flex items-center justify-center w-16 h-16 bg-orange-100 rounded-full mb-4">
-            <Activity className="h-8 w-8 text-orange-600" />
-          </div>
-          <CardTitle>Saran Aktivitas</CardTitle>
-          <CardDescription>Dapatkan saran berdasarkan mood</CardDescription>
-        </CardHeader>
-      </Card>
-
       <Card className="cursor-pointer hover:shadow-lg transition-shadow" onClick={() => setCurrentView('download')}>
         <CardHeader>
           <div className="flex items-center justify-center w-16 h-16 bg-red-100 rounded-full mb-4">
@@ -137,45 +77,6 @@ const SejiwaApp = () => {
           <CardDescription>Dapatkan aplikasi mobile</CardDescription>
         </CardHeader>
       </Card>
-    </div>
-  );
-
-  const renderWeather = () => (
-    <div className="space-y-6">
-      <Card>
-        <CardHeader>
-          <CardTitle>Informasi Cuaca</CardTitle>
-          <CardDescription>Kondisi cuaca terkini di {weatherData.city}</CardDescription>
-        </CardHeader>
-        <CardContent>
-          <div className="text-center">
-            <div className="flex justify-center mb-4">
-              {getWeatherIcon()}
-            </div>
-            <h3 className="text-2xl font-bold mb-2">{weatherData.temperature}°C</h3>
-            <p className="text-gray-600 mb-4">{weatherData.condition}</p>
-            <div className="grid grid-cols-2 gap-4">
-              <div className="text-center">
-                <div className="text-sm text-gray-500">Kelembaban</div>
-                <div className="text-lg font-semibold">{weatherData.humidity}%</div>
-              </div>
-              <div className="text-center">
-                <div className="text-sm text-gray-500">Angin</div>
-                <div className="text-lg font-semibold">{weatherData.wind} km/jam</div>
-              </div>
-            </div>
-          </div>
-        </CardContent>
-      </Card>
-      <div className="flex gap-4">
-        <Button onClick={() => setCurrentView('main')}>Kembali ke Menu</Button>
-        <Button variant="outline" asChild>
-          <Link to="/">
-            <Home className="h-4 w-4 mr-2" />
-            Kembali ke Home
-          </Link>
-        </Button>
-      </div>
     </div>
   );
 
@@ -301,42 +202,6 @@ const SejiwaApp = () => {
     </div>
   );
 
-  const renderActivities = () => (
-    <div className="space-y-6">
-      <Card>
-        <CardHeader>
-          <CardTitle>Saran Aktivitas</CardTitle>
-          <CardDescription>Berikut adalah beberapa aktivitas yang mungkin membantu</CardDescription>
-        </CardHeader>
-        <CardContent>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {activitySuggestions.map((activity, index) => (
-              <div key={index} className="p-4 border rounded-lg hover:bg-gray-50 transition-colors">
-                <div className="flex items-center space-x-3">
-                  <div className="w-8 h-8 bg-purple-100 rounded-full flex items-center justify-center">
-                    <span className="text-purple-600">{index + 1}</span>
-                  </div>
-                  <p className="text-sm">{activity}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </CardContent>
-      </Card>
-      <div className="flex gap-4">
-        <Button variant="outline" onClick={() => setCurrentView('main')}>
-          Kembali ke Menu
-        </Button>
-        <Button variant="outline" asChild>
-          <Link to="/">
-            <Home className="h-4 w-4 mr-2" />
-            Kembali ke Home
-          </Link>
-        </Button>
-      </div>
-    </div>
-  );
-
   const renderDownload = () => (
     <div className="space-y-6">
       <Card>
@@ -424,11 +289,9 @@ const SejiwaApp = () => {
         {/* Main Content */}
         <div className="mb-8">
           {currentView === 'main' && renderMainMenu()}
-          {currentView === 'weather' && renderWeather()}
           {currentView === 'moodTrack' && renderMoodTrack()}
           {currentView === 'moodSuccess' && renderMoodSuccess()}
           {currentView === 'moodHistory' && renderMoodHistory()}
-          {currentView === 'activities' && renderActivities()}
           {currentView === 'download' && renderDownload()}
         </div>
 
