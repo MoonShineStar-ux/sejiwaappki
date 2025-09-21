@@ -1,16 +1,17 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
-import { Check } from "lucide-react";
+import { Check, Crown } from "lucide-react";
+import BackButton from "@/components/BackButton";
 
 const Pricing = () => {
   const plans = [
     {
       name: "BASIC",
       price: {
-        weekly: "Rp 25.000",
-        monthly: "Rp 75.000",
-        yearly: "Rp 750.000"
+        weekly: "Gratis",
+        monthly: "Gratis",
+        yearly: "Gratis"
       },
       features: [
         "Konseling chat 24/7",
@@ -18,7 +19,9 @@ const Pricing = () => {
         "Journaling mood",
         "Komunitas terbatas",
         "1 sesi grup per minggu"
-      ]
+      ],
+      popular: false,
+      free: true
     },
     {
       name: "VIP",
@@ -34,7 +37,9 @@ const Pricing = () => {
         "Progress tracking",
         "2 sesi grup per minggu",
         "Priority support"
-      ]
+      ],
+      popular: false,
+      free: false
     },
     {
       name: "PREMIUM",
@@ -50,7 +55,9 @@ const Pricing = () => {
         "Program personalisasi",
         "Unlimited sesi grup",
         "24/7 priority support"
-      ]
+      ],
+      popular: true,
+      free: false
     },
     {
       name: "ELITE",
@@ -67,13 +74,19 @@ const Pricing = () => {
         "Coaching karir",
         "Emergency support",
         "Family package included"
-      ]
+      ],
+      popular: false,
+      free: false
     }
   ];
 
   return (
     <div className="min-h-screen bg-gray-50 py-12">
       <div className="container mx-auto px-4">
+        <div className="mb-6">
+          <BackButton />
+        </div>
+        
         <div className="text-center mb-12">
           <h1 className="text-4xl font-bold text-gray-900 mb-4">Pilih Paket yang Tepat untuk Anda</h1>
           <p className="text-gray-600 max-w-2xl mx-auto">
@@ -83,11 +96,19 @@ const Pricing = () => {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
           {plans.map((plan, index) => (
-            <Card key={index} className={index === 2 ? "border-2 border-purple-600 shadow-lg" : ""}>
+            <Card key={index} className={plan.popular ? "border-2 border-purple-600 shadow-lg relative" : ""}>
+              {plan.popular && (
+                <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
+                  <div className="bg-purple-600 text-white px-3 py-1 rounded-full text-sm font-semibold flex items-center gap-1">
+                    <Crown className="h-3 w-3" />
+                    Populer
+                  </div>
+                </div>
+              )}
               <CardHeader>
                 <CardTitle className="text-2xl">{plan.name}</CardTitle>
-                <CardDescription className="text-lg font-semibold text-gray-900">
-                  {plan.price.monthly} / bulan
+                <CardDescription className={plan.free ? "text-green-600 font-bold text-lg" : "text-lg font-semibold text-gray-900"}>
+                  {plan.price.monthly} {plan.free ? "" : "/ bulan"}
                 </CardDescription>
               </CardHeader>
               <CardContent>
@@ -102,7 +123,7 @@ const Pricing = () => {
               </CardContent>
               <CardFooter>
                 <Button className="w-full bg-purple-600 hover:bg-purple-700">
-                  Pilih Paket
+                  {plan.free ? "Mulai Gratis" : "Pilih Paket"}
                 </Button>
               </CardFooter>
             </Card>

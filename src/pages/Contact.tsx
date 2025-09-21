@@ -3,11 +3,16 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Mail, Phone, MapPin, Send } from "lucide-react";
+import BackButton from "@/components/BackButton";
 
 const Contact = () => {
   return (
     <div className="min-h-screen bg-white py-12">
       <div className="container mx-auto px-4">
+        <div className="mb-6">
+          <BackButton />
+        </div>
+        
         <div className="text-center mb-12">
           <h1 className="text-4xl font-bold text-gray-900 mb-4">Hubungi Kami</h1>
           <p className="text-gray-600 max-w-2xl mx-auto">
