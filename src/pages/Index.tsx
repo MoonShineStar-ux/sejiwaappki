@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { MadeWithDyad } from "@/components/made-with-dyad";
 import { Star, Users, Shield, Heart, Play, Download, Brain, Cloud, Smile, Activity } from "lucide-react";
-import VisitorCounter from "@/components/VisitorCounter"; // Import komponen baru
+import VisitorCounter from "@/components/VisitorCounter";
+import { PoweredBySejiwaapp } from "@/components/PoweredBySejiwaapp"; // Import komponen baru
 
 const Index = () => {
   return (
@@ -187,7 +187,8 @@ const Index = () => {
         </div>
       </section>
 
-      <MadeWithDyad />
+      {/* Footer baru */}
+      <PoweredBySejiwaapp />
     </div>
   );
 };

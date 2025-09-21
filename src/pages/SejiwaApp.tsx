@@ -27,9 +27,10 @@ import {
   Twitter,
   Apple,
   ShoppingBag,
-  Home // Menambahkan icon Home
+  Home
 } from 'lucide-react';
-import { Link } from 'react-router-dom'; // Menambahkan Link untuk navigasi
+import { Link } from 'react-router-dom';
+import { PoweredBySejiwaapp } from '@/components/PoweredBySejiwaapp'; // Import komponen baru
 
 const SejiwaApp = () => {
   const [currentView, setCurrentView] = useState('main');
@@ -486,60 +487,6 @@ const SejiwaApp = () => {
     </div>
   );
 
-  const renderFooter = () => (
-    <footer className="bg-gray-900 text-white mt-12 py-8">
-      <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div>
-            <h3 className="text-lg font-semibold mb-4">SEJIWAAPP</h3>
-            <p className="text-gray-300">
-              Platform kesehatan mental terdepan yang membantu Anda mencapai keseimbangan jiwa dan raga.
-            </p>
-          </div>
-
-          <div>
-            <h4 className="text-lg font-semibold mb-4">Kontak Kami</h4>
-            <div className="space-y-2">
-              <div className="flex items-center">
-                <Mail className="h-4 w-4 mr-2" />
-                <span className="text-gray-300">support@sejiwaapp.com</span>
-              </div>
-              <div className="flex items-center">
-                <Phone className="h-4 w-4 mr-2" />
-                <span className="text-gray-300">+62 21 1234 5678</span>
-              </div>
-              <div className="flex items-center">
-                <MapPin className="h-4 w-4 mr-2" />
-                <span className="text-gray-300">Jakarta, Indonesia</span>
-              </div>
-            </div>
-          </div>
-
-          <div>
-            <h4 className="text-lg font-semibold mb-4">Follow Kami</h4>
-            <div className="flex space-x-4">
-              <Button variant="ghost" size="icon" className="text-gray-300 hover:text-white">
-                <Facebook className="h-5 w-5" />
-              </Button>
-              <Button variant="ghost" size="icon" className="text-gray-300 hover:text-white">
-                <Instagram className="h-5 w-5" />
-              </Button>
-              <Button variant="ghost" size="icon" className="text-gray-300 hover:text-white">
-                <Twitter className="h-5 w-5" />
-              </Button>
-            </div>
-          </div>
-        </div>
-
-        <div className="border-t border-gray-800 mt-8 pt-8 text-center">
-          <p className="text-gray-400 text-sm">
-            © 2024 SEJIWAAPP. All rights reserved.
-          </p>
-        </div>
-      </div>
-    </footer>
-  );
-
   return (
     <div className="min-h-screen bg-gradient-to-br from-purple-50 to-blue-50">
       <div className="container mx-auto px-4 py-8">
@@ -573,8 +520,8 @@ const SejiwaApp = () => {
           {currentView === 'download' && renderDownload()}
         </div>
 
-        {/* Footer */}
-        {renderFooter()}
+        {/* Footer baru */}
+        <PoweredBySejiwaapp />
       </div>
     </div>
   );
