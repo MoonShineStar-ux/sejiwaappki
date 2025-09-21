@@ -26,7 +26,7 @@ import {
   Instagram,
   Twitter,
   Apple,
-  GooglePlay
+  ShoppingBag // Mengganti GooglePlay dengan ShoppingBag
 } from 'lucide-react';
 
 const SejiwaApp = () => {
@@ -375,7 +375,7 @@ const SejiwaApp = () => {
         <CardContent>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="text-center p-6 border rounded-lg">
-              <GooglePlay className="h-12 w-12 text-green-600 mx-auto mb-4" />
+              <ShoppingBag className="h-12 w-12 text-green-600 mx-auto mb-4" />
               <h3 className="font-semibold mb-2">Google Play Store</h3>
               <p className="text-sm text-gray-600 mb-4">Untuk perangkat Android</p>
               <Button className="w-full">
