@@ -1,9 +1,10 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Star, Users, Shield, Heart, Play, Download, Brain, Cloud, Smile, Activity } from "lucide-react";
+import { Star, Users, Shield, Play, Download, Brain, Cloud, Smile, Activity } from "lucide-react";
 import VisitorCounter from "@/components/VisitorCounter";
-import { PoweredBySejiwaapp } from "@/components/PoweredBySejiwaapp"; // Import komponen baru
+import { PoweredBySejiwaapp } from "@/components/PoweredBySejiwaapp";
+import Logo from "@/components/Logo"; // Import komponen logo baru
 
 const Index = () => {
   return (
@@ -12,10 +13,7 @@ const Index = () => {
       <header className="bg-white shadow-sm">
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
-            <div className="flex items-center space-x-2">
-              <Heart className="h-8 w-8 text-purple-600" />
-              <h1 className="text-2xl font-bold text-gray-900">SEJIWAAPP</h1>
-            </div>
+            <Logo size="md" />
             <nav className="hidden md:flex space-x-6">
               <Link to="/" className="text-gray-700 hover:text-purple-600 transition-colors">Home</Link>
               <Link to="/pricing" className="text-gray-700 hover:text-purple-600 transition-colors">Paket</Link>
@@ -74,7 +72,7 @@ const Index = () => {
           <Card className="text-center">
             <CardHeader>
               <div className="mx-auto bg-purple-100 p-3 rounded-full">
-                <Heart className="h-6 w-6 text-purple-600" />
+                <Star className="h-6 w-6 text-purple-600" />
               </div>
               <CardTitle>Konseling Profesional</CardTitle>
             </CardHeader>
@@ -116,7 +114,7 @@ const Index = () => {
           <Card className="text-center">
             <CardHeader>
               <div className="mx-auto bg-orange-100 p-3 rounded-full">
-                <Star className="h-6 w-6 text-orange-600" />
+                <Activity className="h-6 w-6 text-orange-600" />
               </div>
               <CardTitle>Live Room</CardTitle>
             </CardHeader>

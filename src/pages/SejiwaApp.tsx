@@ -11,26 +11,18 @@ import {
   CloudLightning,
   Smile,
   Meh,
-  Heart,
   Brain,
   Calendar,
   Activity,
   Download,
   Play,
   Clock,
-  Users,
-  Phone,
-  Mail,
-  MapPin,
-  Facebook,
-  Instagram,
-  Twitter,
-  Apple,
   ShoppingBag,
   Home
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { PoweredBySejiwaapp } from '@/components/PoweredBySejiwaapp'; // Import komponen baru
+import { PoweredBySejiwaapp } from '@/components/PoweredBySejiwaapp';
+import Logo from '@/components/Logo'; // Import komponen logo baru
 
 const SejiwaApp = () => {
   const [currentView, setCurrentView] = useState('main');
@@ -263,7 +255,7 @@ const SejiwaApp = () => {
   const renderMoodSuccess = () => (
     <div className="text-center space-y-6">
       <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-        <Heart className="h-10 w-10 text-green-600" />
+        <div className="text-3xl">🎉</div>
       </div>
       <h2 className="text-2xl font-bold">Mood Berhasil Dicatat!</h2>
       <p className="text-gray-600">Terima kasih telah melacak perasaan Anda hari ini.</p>
@@ -436,7 +428,9 @@ const SejiwaApp = () => {
             </div>
 
             <div className="text-center p-6 border rounded-lg">
-              <Apple className="h-12 w-12 text-gray-600 mx-auto mb-4" />
+              <div className="w-12 h-12 bg-gray-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                <span className="text-white text-xl">􀣺</span>
+              </div>
               <h3 className="font-semibold mb-2">Apple App Store</h3>
               <p className="text-sm text-gray-600 mb-4">Untuk perangkat iOS</p>
               <Button className="w-full">
@@ -498,13 +492,7 @@ const SejiwaApp = () => {
                 <Home className="h-5 w-5" />
               </Link>
             </Button>
-            <div className="text-center">
-              <div className="flex items-center justify-center mb-2">
-                <Heart className="h-8 w-8 text-purple-600 mr-2" />
-                <h1 className="text-3xl font-bold text-gray-900">SEJIWAAPP</h1>
-              </div>
-              <p className="text-gray-600">Platform Kesehatan Mental Terpadu</p>
-            </div>
+            <Logo size="md" />
           </div>
         </div>
 
