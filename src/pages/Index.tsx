@@ -26,7 +26,7 @@ const Index = () => {
               <Button variant="ghost" asChild>
                 <Link to="/app">Masuk</Link>
               </Button>
-              <Button className="bg-pink-600 hover:bg-pink-700" asChild>
+              <Button className="bg-pink-600 hover:bg-pink-700 text-white" asChild>
                 <Link to="/app">Daftar</Link>
               </Button>
             </div>
@@ -98,7 +98,9 @@ const Index = () => {
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-4 gap-8">
             <div>
-              <Logo className="text-white" />
+              <div className="flex items-center">
+                <Logo className="text-white" />
+              </div>
               <p className="text-gray-400 mt-4">
                 Aplikasi kencan modern untuk menemukan pasangan terbaik
               </p>
@@ -123,12 +125,12 @@ const Index = () => {
               <h4 className="font-semibold mb-4">Download</h4>
               <div className="space-y-2">
                 <Button variant="outline" className="w-full bg-gray-800 text-white hover:bg-gray-700" asChild>
-                  <a href="https://play.google.com" target="_blank" rel="noopener noreferrer">
+                  <a href="https://play.google.com/store/apps/details?id=com.sejiwaapp" target="_blank" rel="noopener noreferrer">
                     Google Play
                   </a>
                 </Button>
                 <Button variant="outline" className="w-full bg-gray-800 text-white hover:bg-gray-700" asChild>
-                  <a href="https://appstore.com" target="_blank" rel="noopener noreferrer">
+                  <a href="https://apps.apple.com/id/app/sejiwaapp" target="_blank" rel="noopener noreferrer">
                     App Store
                   </a>
                 </Button>
