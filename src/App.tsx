@@ -15,6 +15,7 @@ import Privacy from "./pages/Privacy";
 import Careers from "./pages/Careers";
 import FAQ from "./pages/FAQ";
 import Safety from "./pages/Safety";
+import SejiwaApp from "./pages/SejiwaApp";
 
 const queryClient = new QueryClient();
 
@@ -38,6 +39,7 @@ const App = () => {
               <Route path="/careers" element={<Careers />} />
               <Route path="/faq" element={<FAQ />} />
               <Route path="/safety" element={<Safety />} />
+              <Route path="/sejiwaapp" element={<SejiwaApp />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </div>
