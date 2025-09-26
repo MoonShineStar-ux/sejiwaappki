@@ -4,7 +4,6 @@ import { Button } from "@/components/ui/button";
 import { Play, Heart, Shield, Users, MessageCircle, Video, Star, ArrowRight } from "lucide-react";
 import Logo from "@/components/Logo";
 import DownloadSection from "@/components/DownloadSection";
-import VisitorCounter from "@/components/VisitorCounter";
 import { PoweredBySejiwaapp } from "@/components/PoweredBySejiwaapp";
 
 const Index = () => {
@@ -62,14 +61,7 @@ const Index = () => {
               <Link to="/how-it-works" className="text-gray-600 hover:text-gray-900 transition-colors">Cara Kerja</Link>
               <Link to="/contact" className="text-gray-600 hover:text-gray-900 transition-colors">Kontak</Link>
             </nav>
-            <div className="flex items-center space-x-4">
-              <Button variant="ghost" asChild>
-                <Link to="/app">Masuk</Link>
-              </Button>
-              <Button className="bg-pink-600 hover:bg-pink-700 text-white" asChild>
-                <Link to="/app">Daftar Gratis</Link>
-              </Button>
-            </div>
+            {/* Tombol login/daftar dihapus */}
           </div>
         </div>
       </header>
@@ -90,9 +82,9 @@ const Index = () => {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button size="lg" className="bg-pink-600 hover:bg-pink-700 text-white px-8 py-6 text-lg" asChild>
-                <Link to="/app">
+                <Link to="/download">
                   <Play className="h-5 w-5 mr-2" />
-                  Mulai Sekarang
+                  Download Sekarang
                 </Link>
               </Button>
               <Button size="lg" variant="outline" className="px-8 py-6 text-lg" asChild>
@@ -155,8 +147,8 @@ const Index = () => {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button size="lg" className="bg-white text-pink-600 hover:bg-gray-100 px-8 py-6 text-lg" asChild>
-              <Link to="/app">
-                Daftar Sekarang
+              <Link to="/download">
+                Download Aplikasi
               </Link>
             </Button>
             <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-pink-600 px-8 py-6 text-lg" asChild>
@@ -222,8 +214,6 @@ const Index = () => {
           </div>
         </div>
       </footer>
-
-      <VisitorCounter />
     </div>
   );
 };

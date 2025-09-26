@@ -10,7 +10,6 @@ import About from "./pages/About";
 import Contact from "./pages/Contact";
 import HowItWorks from "./pages/HowItWorks";
 import NotFound from "./pages/NotFound";
-import SejiwaApp from "./pages/SejiwaApp";
 import Terms from "./pages/Terms";
 import Privacy from "./pages/Privacy";
 import Careers from "./pages/Careers";
@@ -39,7 +38,6 @@ const App = () => {
               <Route path="/careers" element={<Careers />} />
               <Route path="/faq" element={<FAQ />} />
               <Route path="/safety" element={<Safety />} />
-              <Route path="/app" element={<SejiwaApp />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </div>

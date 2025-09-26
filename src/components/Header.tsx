@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import { Button } from "@/components/ui/button";
 import Logo from "./Logo";
 
 interface HeaderProps {
@@ -19,16 +18,7 @@ const Header = ({ showAuthButtons = true }: HeaderProps) => {
             <Link to="/how-it-works" className="text-gray-600 hover:text-gray-900 transition-colors">Cara Kerja</Link>
             <Link to="/contact" className="text-gray-600 hover:text-gray-900 transition-colors">Kontak</Link>
           </nav>
-          {showAuthButtons && (
-            <div className="flex items-center space-x-4">
-              <Button variant="ghost" asChild>
-                <Link to="/app">Masuk</Link>
-              </Button>
-              <Button className="bg-pink-600 hover:bg-pink-700 text-white" asChild>
-                <Link to="/app">Daftar Gratis</Link>
-              </Button>
-            </div>
-          )}
+          {/* Tombol login/daftar dihapus */}
         </div>
       </div>
     </header>
