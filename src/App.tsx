@@ -14,6 +14,8 @@ import SejiwaApp from "./pages/SejiwaApp";
 import Terms from "./pages/Terms";
 import Privacy from "./pages/Privacy";
 import Careers from "./pages/Careers";
+import FAQ from "./pages/FAQ";
+import Safety from "./pages/Safety";
 
 const queryClient = new QueryClient();
 
@@ -35,6 +37,8 @@ const App = () => {
               <Route path="/terms" element={<Terms />} />
               <Route path="/privacy" element={<Privacy />} />
               <Route path="/careers" element={<Careers />} />
+              <Route path="/faq" element={<FAQ />} />
+              <Route path="/safety" element={<Safety />} />
               <Route path="/app" element={<SejiwaApp />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
