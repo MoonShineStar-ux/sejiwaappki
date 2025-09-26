@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Play, Heart, Shield, Users, MessageCircle, Video, Star, ArrowRight } from "lucide-react";
 import Logo from "@/components/Logo";
-import DownloadSection from "@/components/DownloadSection";
 import { PoweredBySejiwaapp } from "@/components/PoweredBySejiwaapp";
 
 const Index = () => {
@@ -159,9 +158,6 @@ const Index = () => {
           </div>
         </div>
       </section>
-
-      {/* Download Section */}
-      <DownloadSection />
 
       {/* Footer */}
       <footer className="bg-gray-900 text-white py-12">
