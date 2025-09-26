@@ -1,0 +1,9 @@
+feat: initial commit - SEJIWAAPP dating app website
+
+- Landing page utama dengan hero section
+- Halaman features, pricing, about, dan contact
+- Responsive design dengan Tailwind CSS
+- Komponen UI menggunakan shadcn/ui
+- Navigation lengkap antara halaman
+- Footer dengan informasi perusahaan
+- System design yang scalable
