@@ -82,14 +82,14 @@ const Index = () => {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button size="lg" className="bg-pink-600 hover:bg-pink-700 text-white px-8 py-6 text-lg" asChild>
-                <Link to="/download">
+                <Link to="/how-it-works">
                   <Play className="h-5 w-5 mr-2" />
-                  Download Sekarang
+                  Pelajari Lebih Lanjut
                 </Link>
               </Button>
               <Button size="lg" variant="outline" className="px-8 py-6 text-lg" asChild>
-                <Link to="/how-it-works">
-                  Pelajari Lebih Lanjut
+                <Link to="/features">
+                  Lihat Fitur Lengkap
                   <ArrowRight className="h-5 w-5 ml-2" />
                 </Link>
               </Button>
@@ -147,13 +147,13 @@ const Index = () => {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button size="lg" className="bg-white text-pink-600 hover:bg-gray-100 px-8 py-6 text-lg" asChild>
-              <Link to="/download">
-                Download Aplikasi
+              <Link to="/features">
+                Jelajahi Fitur
               </Link>
             </Button>
             <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-pink-600 px-8 py-6 text-lg" asChild>
-              <Link to="/pricing">
-                Lihat Paket Premium
+              <Link to="/about">
+                Tentang Kami
               </Link>
             </Button>
           </div>
